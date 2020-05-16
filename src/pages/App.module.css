@@ -1,0 +1,9 @@
+body {
+  background-color: #ddd;
+}
+
+.App {
+  height: 300px;
+  background-color: #fff;
+  border-radius: 25px;
+}
