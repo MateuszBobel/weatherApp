@@ -1,0 +1,11 @@
+.searchBtn {
+  display: block;
+  width: 50%;
+  height: 60px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+}
