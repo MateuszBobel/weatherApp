@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './SearchInput.module.css';
 
-const SearchInput = () => {
-  const [input, setInput] = useState('');
+const SearchInput = ({ stateValue, setStateValue }) => {
+  const handleInputChange = (e) => {
+    setStateValue({
+      ...stateValue,
+      inputValue: e.target.value,
+    });
+  };
 
-  const handleInputChange = (e) => setInput(e.target.value);
+  const { wrap, search, searchIcon, searchInput } = styles;
 
   return (
-    <div className={styles.wrap}>
-      <div className={styles.search}>
-        <div className={styles.searchIcon}>
+    <div className={wrap}>
+      <div className={search}>
+        <div className={searchIcon}>
           <span className='fas fa-search'></span>
         </div>
         <input
-          className={styles.searchInput}
+          className={searchInput}
           type='search'
           name='search'
+          value={stateValue.inputValue}
           placeholder='Search place...'
           onChange={(e) => handleInputChange(e)}
         />
