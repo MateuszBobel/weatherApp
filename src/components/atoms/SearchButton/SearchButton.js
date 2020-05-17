@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './SearchButton.module.css';
 
-const SearchButton = ({ click }) => (
-  <button onClick={click} className={styles.searchBtn}>
+const SearchButton = ({ getCurrentWeather }) => (
+  <button onClick={getCurrentWeather} className={styles.searchBtn}>
     Search
   </button>
 );

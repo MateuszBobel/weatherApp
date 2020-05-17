@@ -13,9 +13,10 @@
   margin: 10px 0 0 30px;
 }
 
-.mainTemp {
-  margin: 10px 0;
-  font-size: 42px;
+.mainTemp,
+.cityName {
+  margin: 0 0 10px 0;
+  font-size: 30px;
 }
 
 .dayOfWeek {
@@ -37,13 +38,13 @@
 }
 
 .cloud,
-.rain {
+.wind {
   display: flex;
   font-size: 18px;
   margin-bottom: 12px;
 }
 
 .cloudInfo,
-.rainInfo {
+.windInfo {
   padding-left: 15px;
 }
