@@ -1,0 +1,49 @@
+.mainPanel {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.weatherBigLogo {
+  margin: 10px 0 0 22px;
+}
+
+.weatherPanel {
+  margin: 10px 0 0 30px;
+}
+
+.mainTemp {
+  margin: 10px 0;
+  font-size: 42px;
+}
+
+.dayOfWeek {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dayOfWeek::after {
+  height: 1px;
+  margin: 20px 30px 20px 0;
+  background-color: #777;
+  content: '';
+  display: block;
+}
+
+.time {
+  font-weight: normal;
+  color: #777;
+}
+
+.cloud,
+.rain {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.cloudInfo,
+.rainInfo {
+  padding-left: 15px;
+}
