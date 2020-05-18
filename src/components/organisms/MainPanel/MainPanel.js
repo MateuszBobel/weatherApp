@@ -110,6 +110,8 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     error,
     errorMessage,
     errorSymbol,
+    mainInfoWrapper,
+    mainInfo,
   } = styles;
 
   const { isError } = stateValue;
@@ -118,37 +120,42 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     <div className={mainPanel}>
       <SearchInput stateValue={stateValue} setStateValue={setStateValue} />
 
-      {isError ? (
-        <div className={weatherBigLogo}>
-          <img src={errorLogo} alt='error' />
-        </div>
-      ) : (
-        <div className={weatherBigLogo}>
-          <img src={changeWeatherBigLogo(description)} alt='sun' />
-        </div>
-      )}
-
       <div className={weatherPanel}>
         {isError ? (
-          <>
-            <p className={error}>Oops...</p>
-            <p className={error}>sth goes wrong</p>
-          </>
+          <div className={mainInfoWrapper}>
+            <div className={weatherBigLogo}>
+              <img src={errorLogo} alt='error' />
+            </div>
+            <div className={mainInfo}>
+              <p className={error}>Oops...</p>
+              <p className={error}>sth goes wrong</p>
+              <p className={dayOfWeek}>
+                {getCurrentTime('day')},
+                <span className={styles.time}> {getCurrentTime('time')}</span>
+              </p>
+            </div>
+          </div>
         ) : (
-          <>
-            <p className={cityName}>{location}</p>
-            <p className={mainTemp}>{Math.floor(mainTemperature)}&deg;C</p>
-          </>
+          <div className={mainInfoWrapper}>
+            <div className={weatherBigLogo}>
+              <img src={changeWeatherBigLogo(description)} alt='sun' />
+            </div>
+            <div className={mainInfo}>
+              <p className={cityName}>{location}</p>
+              <p className={mainTemp}>{Math.floor(mainTemperature)}&deg;C</p>
+              <p className={dayOfWeek}>
+                {getCurrentTime('day')},
+                <span className={styles.time}> {getCurrentTime('time')}</span>
+              </p>
+            </div>
+          </div>
         )}
-        <p className={dayOfWeek}>
-          {getCurrentTime('day')},<span className={styles.time}> {getCurrentTime('time')}</span>
-        </p>
         {isError ? (
           <div className={errorSymbol}>
             <span>
               <i className='fas fa-exclamation-triangle'></i>
             </span>
-            <p className={errorMessage}>your city name was probably incorrect, please try again</p>
+            <p className={errorMessage}>City name was probably incorrect, please try again</p>
           </div>
         ) : (
           <div>

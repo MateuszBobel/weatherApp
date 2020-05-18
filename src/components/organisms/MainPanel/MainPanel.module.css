@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  border-radius: 25px;
 }
 
 .weatherBigLogo {
@@ -17,15 +16,15 @@
 .cityName,
 .error {
   margin: 0 0 10px 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .dayOfWeek {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
 }
 
-.dayOfWeek::after {
+.mainInfoWrapper::after {
   height: 1px;
   margin: 20px 30px 20px 0;
   background-color: #777;
@@ -55,4 +54,96 @@
 .windInfo,
 .errorMessage {
   padding-left: 15px;
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .weatherBigLogo {
+    margin: 10px 0 0 0;
+  }
+  .weatherPanel {
+    margin: 10px 0 0 50px;
+  }
+  .mainTemp,
+  .cityName,
+  .error {
+    margin: 0 0 20px 0;
+    font-size: 50px;
+  }
+  .dayOfWeek {
+    font-size: 40px;
+  }
+
+  .cloudSymbol,
+  .windSymbol,
+  .errorSymbol {
+    display: flex;
+    font-size: 38px;
+    margin-bottom: 32px;
+  }
+
+  .mainInfoWrapper {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .mainInfo {
+    margin: 5px 0 0 70px;
+  }
+
+  .errorSymbol span {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 560px) and (orientation: landscape) {
+  .weatherBigLogo {
+    margin: 10px 0 0 0;
+  }
+  .weatherPanel {
+    margin: 10px 0 0 50px;
+  }
+  .mainTemp,
+  .cityName,
+  .error {
+    margin: 0 0 20px 0;
+  }
+
+  .mainInfoWrapper {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .mainInfo {
+    margin: 25px 0 0 60px;
+  }
+
+  .errorSymbol span {
+    margin-top: auto;
+  }
+}
+
+@media (min-width: 1360px) and (orientation: landscape) {
+  .mainPanel {
+    height: 100%;
+    width: 25%;
+  }
+  .weatherBigLogo {
+    margin: 10px 0;
+  }
+  .weatherBigLogo img {
+    width: 60%;
+  }
+
+  .mainInfoWrapper {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .mainInfo {
+    margin: 25px 0 0 0;
+  }
+
+  .errorSymbol span {
+    margin-top: 10px;
+  }
 }
