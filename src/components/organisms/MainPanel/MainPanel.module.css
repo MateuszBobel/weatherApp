@@ -14,7 +14,8 @@
 }
 
 .mainTemp,
-.cityName {
+.cityName,
+.error {
   margin: 0 0 10px 0;
   font-size: 30px;
 }
@@ -37,14 +38,21 @@
   color: #777;
 }
 
-.cloud,
-.wind {
+.cloudSymbol,
+.windSymbol,
+.errorSymbol {
   display: flex;
   font-size: 18px;
   margin-bottom: 12px;
 }
 
+.errorSymbol span {
+  color: #f19020;
+  margin-top: 10px;
+}
+
 .cloudInfo,
-.windInfo {
+.windInfo,
+.errorMessage {
   padding-left: 15px;
 }

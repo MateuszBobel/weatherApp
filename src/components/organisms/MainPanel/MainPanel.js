@@ -8,6 +8,7 @@ import clouds from './clouds-192x192.png';
 import rain from './rain-192x192.png';
 import drizzle from './drizzle-192x192.png';
 import thunderstorm from './thunderstorm-192x192.png';
+import errorLogo from './error-192x192.png';
 
 import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
@@ -30,6 +31,7 @@ const mainPanel = ({ stateValue, setStateValue }) => {
           setStateValue({
             ...stateValue,
             inputValue: '',
+            isError: false,
             currentWeather: {
               location: response.name,
               description: response.weather[0].main,
@@ -39,7 +41,13 @@ const mainPanel = ({ stateValue, setStateValue }) => {
             },
           })
         )
-        .catch((error) => console.log(error, 'Error'));
+        .catch((error) => {
+          setStateValue({
+            ...stateValue,
+            inputValue: '',
+            isError: true,
+          });
+        });
     }
   };
 
@@ -95,38 +103,71 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     cityName,
     mainTemp,
     dayOfWeek,
-    cloud,
+    cloudSymbol,
     cloudInfo,
-    wind,
+    windSymbol,
     windInfo,
+    error,
+    errorMessage,
+    errorSymbol,
   } = styles;
+
+  const { isError } = stateValue;
 
   return (
     <div className={mainPanel}>
       <SearchInput stateValue={stateValue} setStateValue={setStateValue} />
 
-      <div className={weatherBigLogo}>
-        <img src={changeWeatherBigLogo(description)} alt='sun' />
-      </div>
+      {isError ? (
+        <div className={weatherBigLogo}>
+          <img src={errorLogo} alt='error' />
+        </div>
+      ) : (
+        <div className={weatherBigLogo}>
+          <img src={changeWeatherBigLogo(description)} alt='sun' />
+        </div>
+      )}
 
       <div className={weatherPanel}>
-        <p className={cityName}>{location}</p>
-        <p className={mainTemp}>{Math.floor(mainTemperature)}&deg;C</p>
+        {isError ? (
+          <>
+            <p className={error}>Oops...</p>
+            <p className={error}>sth goes wrong</p>
+          </>
+        ) : (
+          <>
+            <p className={cityName}>{location}</p>
+            <p className={mainTemp}>{Math.floor(mainTemperature)}&deg;C</p>
+          </>
+        )}
         <p className={dayOfWeek}>
           {getCurrentTime('day')},<span className={styles.time}> {getCurrentTime('time')}</span>
         </p>
+        {isError ? (
+          <div className={errorSymbol}>
+            <span>
+              <i className='fas fa-exclamation-triangle'></i>
+            </span>
+            <p className={errorMessage}>your city name was probably incorrect, please try again</p>
+          </div>
+        ) : (
+          <div>
+            <div className={cloudSymbol}>
+              <span>
+                <i className='fas fa-cloud'></i>
+              </span>
+              <p className={cloudInfo}>{cloudiness}</p>
+            </div>
 
-        <div className={cloud}>
-          <span className='fas fa-cloud'></span>
-          <p className={cloudInfo}>{cloudiness}</p>
-        </div>
-
-        <div className={wind}>
-          <span className='fas fa-wind'></span>
-          <p className={windInfo}>{windSpeed} km/h</p>
-        </div>
+            <div className={windSymbol}>
+              <span>
+                <i className='fas fa-wind'></i>
+              </span>
+              <p className={windInfo}>{windSpeed} km/h</p>
+            </div>
+          </div>
+        )}
       </div>
-
       <SearchButton getCurrentWeather={getCurrentWeather} />
     </div>
   );
