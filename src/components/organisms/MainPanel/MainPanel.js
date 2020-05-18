@@ -1,6 +1,14 @@
 import React from 'react';
 import styles from './MainPanel.module.css';
+
 import sun from './sun-192x192.png';
+import sunWithClouds from './sun-with-clouds-192x192.png';
+import snow from './snow-192x192.png';
+import clouds from './clouds-192x192.png';
+import rain from './rain-192x192.png';
+import drizzle from './drizzle-192x192.png';
+import thunderstorm from './thunderstorm-192x192.png';
+
 import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
 
@@ -24,6 +32,7 @@ const mainPanel = ({ stateValue, setStateValue }) => {
             inputValue: '',
             currentWeather: {
               location: response.name,
+              description: response.weather[0].main,
               mainTemperature: response.main.temp,
               cloudiness: response.weather[0].description,
               windSpeed: response.wind.speed,
@@ -56,7 +65,29 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     }
   };
 
-  const { cloudiness, location, mainTemperature, windSpeed } = stateValue.currentWeather;
+  const changeWeatherBigLogo = (weatherType) => {
+    if (weatherType === 'Clouds') {
+      return clouds;
+    } else if (weatherType === 'Clear') {
+      return sun;
+    } else if (weatherType === 'Snow') {
+      return snow;
+    } else if (weatherType === 'Rain') {
+      return rain;
+    } else if (weatherType === 'Drizzle') {
+      return drizzle;
+    } else if (weatherType === '"Thunderstorm"') {
+      return thunderstorm;
+    } else return sunWithClouds;
+  };
+
+  const {
+    cloudiness,
+    location,
+    description,
+    mainTemperature,
+    windSpeed,
+  } = stateValue.currentWeather;
   const {
     mainPanel,
     weatherBigLogo,
@@ -75,7 +106,7 @@ const mainPanel = ({ stateValue, setStateValue }) => {
       <SearchInput stateValue={stateValue} setStateValue={setStateValue} />
 
       <div className={weatherBigLogo}>
-        <img src={sun} alt='sun' />
+        <img src={changeWeatherBigLogo(description)} alt='sun' />
       </div>
 
       <div className={weatherPanel}>
