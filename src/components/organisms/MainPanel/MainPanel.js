@@ -8,7 +8,7 @@ import clouds from './clouds-192x192.png';
 import rain from './rain-192x192.png';
 import drizzle from './drizzle-192x192.png';
 import thunderstorm from './thunderstorm-192x192.png';
-import errorLogo from './error-192x192.png';
+import errorImage from './undraw_cancel_u1it.svg';
 
 import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
@@ -112,6 +112,7 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     errorSymbol,
     mainInfoWrapper,
     mainInfo,
+    errorImg,
   } = styles;
 
   const { isError } = stateValue;
@@ -121,35 +122,25 @@ const mainPanel = ({ stateValue, setStateValue }) => {
       <SearchInput stateValue={stateValue} setStateValue={setStateValue} />
 
       <div className={weatherPanel}>
-        {isError ? (
-          <div className={mainInfoWrapper}>
-            <div className={weatherBigLogo}>
-              <img src={errorLogo} alt='error' />
-            </div>
-            <div className={mainInfo}>
-              <p className={error}>Oops...</p>
-              <p className={error}>sth goes wrong</p>
-              <p className={dayOfWeek}>
-                {getCurrentTime('day')},
-                <span className={styles.time}> {getCurrentTime('time')}</span>
-              </p>
-            </div>
+        <div className={mainInfoWrapper}>
+          <div className={weatherBigLogo}>
+            <img
+              className={isError ? errorImg : null}
+              src={isError ? errorImage : changeWeatherBigLogo(description)}
+              alt={isError ? 'error' : 'sun'}
+            />
           </div>
-        ) : (
-          <div className={mainInfoWrapper}>
-            <div className={weatherBigLogo}>
-              <img src={changeWeatherBigLogo(description)} alt='sun' />
-            </div>
-            <div className={mainInfo}>
-              <p className={cityName}>{location}</p>
-              <p className={mainTemp}>{Math.floor(mainTemperature)}&deg;C</p>
-              <p className={dayOfWeek}>
-                {getCurrentTime('day')},
-                <span className={styles.time}> {getCurrentTime('time')}</span>
-              </p>
-            </div>
+          <div className={mainInfo}>
+            <p className={isError ? error : cityName}>{isError ? 'Oops...' : location}</p>
+            <p className={isError ? error : mainTemp}>
+              {isError ? 'sth goes wrong' : `${Math.floor(mainTemperature)} \u00b0C`}
+            </p>
+            <p className={dayOfWeek}>
+              {getCurrentTime('day')},<span className={styles.time}> {getCurrentTime('time')}</span>
+            </p>
           </div>
-        )}
+        </div>
+
         {isError ? (
           <div className={errorSymbol}>
             <span>

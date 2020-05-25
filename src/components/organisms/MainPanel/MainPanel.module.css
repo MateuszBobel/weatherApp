@@ -8,6 +8,11 @@
   margin: 10px 0 0 22px;
 }
 
+.errorImg {
+  width: 70%;
+  margin-bottom: 20px;
+}
+
 .weatherPanel {
   margin: 10px 0 0 30px;
 }
@@ -63,6 +68,17 @@
   .weatherPanel {
     margin: 10px 0 0 50px;
   }
+
+  .mainInfoWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .errorImg {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
   .mainTemp,
   .cityName,
   .error {
@@ -81,13 +97,8 @@
     margin-bottom: 32px;
   }
 
-  .mainInfoWrapper {
-    display: flex;
-    margin-bottom: 30px;
-  }
-
   .mainInfo {
-    margin: 5px 0 0 70px;
+    margin-top: 5px;
   }
 
   .errorSymbol span {
@@ -95,12 +106,28 @@
   }
 }
 
+@media (min-width: 1024px) and (orientation: portrait) {
+  .errorSymbol {
+    padding: 20px;
+  }
+
+  .errorSymbol span {
+    margin-top: 18px;
+  }
+}
+
 @media (min-width: 560px) and (orientation: landscape) {
   .weatherBigLogo {
+    width: 30%;
     margin: 10px 0 0 0;
   }
   .weatherPanel {
     margin: 10px 0 0 50px;
+  }
+
+  .errorImg {
+    width: 100%;
+    margin-bottom: 20px;
   }
   .mainTemp,
   .cityName,
@@ -122,14 +149,23 @@
   }
 }
 
-@media (min-width: 1360px) and (orientation: landscape) {
+@media (min-width: 1024px) and (orientation: landscape) {
   .mainPanel {
     height: 100%;
-    width: 25%;
+    width: 35%;
   }
+  .weatherBigLogo {
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+
   .weatherBigLogo {
     margin: 10px 0;
   }
+  .errorImg {
+    width: 60%;
+  }
+
   .weatherBigLogo img {
     width: 60%;
   }
@@ -145,5 +181,12 @@
 
   .errorSymbol span {
     margin-top: 10px;
+  }
+}
+
+@media (min-width: 1360px) and (orientation: landscape) {
+  .mainPanel {
+    height: 100%;
+    width: 25%;
   }
 }
