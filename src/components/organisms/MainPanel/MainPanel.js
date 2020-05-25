@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './MainPanel.module.css';
 
 import sun from './sun-192x192.png';
@@ -13,10 +13,32 @@ import errorImage from './undraw_cancel_u1it.svg';
 import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
 
-const mainPanel = ({ stateValue, setStateValue }) => {
-  const getCurrentWeather = () => {
+const MainPanel = ({ stateValue, setStateValue }) => {
+  useEffect(() => {
+    const url = 'http://ip-api.com/json/';
+
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          return response;
+        } else throw Error(response.statusText);
+      })
+      .then((response) => response.json())
+      .then((response) => {
+        const initialCity = response.city;
+        getCurrentWeather(initialCity);
+      })
+      .catch((error) => {
+        setStateValue({
+          ...stateValue,
+          isError: true,
+        });
+      });
+  }, []);
+
+  const getCurrentWeather = (city) => {
     const APIkey = '3b457a2b4c41d8d6fda62224d0b00c8b';
-    const searchingCity = stateValue.inputValue;
+    const searchingCity = city;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchingCity}&appid=${APIkey}&units=metric`;
 
     if (searchingCity !== '') {
@@ -115,7 +137,7 @@ const mainPanel = ({ stateValue, setStateValue }) => {
     errorImg,
   } = styles;
 
-  const { isError } = stateValue;
+  const { isError, inputValue } = stateValue;
 
   return (
     <div className={mainPanel}>
@@ -166,9 +188,9 @@ const mainPanel = ({ stateValue, setStateValue }) => {
           </div>
         )}
       </div>
-      <SearchButton getCurrentWeather={getCurrentWeather} />
+      <SearchButton getCurrentWeather={() => getCurrentWeather(inputValue)} />
     </div>
   );
 };
 
-export default mainPanel;
+export default MainPanel;
