@@ -7,13 +7,18 @@
 }
 
 body {
-  background-color: #ccc;
   font-family: 'ABeeZee', sans-serif;
 }
 
 .App {
-  display: block;
+  position: relative;
   height: 100vh;
   background-color: #ddd;
   border-radius: 25px;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .App {
+    display: flex;
+  }
 }

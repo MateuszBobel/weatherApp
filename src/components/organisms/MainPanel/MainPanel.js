@@ -61,6 +61,14 @@ const MainPanel = ({ stateValue, setStateValue }) => {
               cloudiness: response.weather[0].description,
               windSpeed: response.wind.speed,
             },
+            highlightParameters: {
+              minTemp: `${response.main.temp_min} \u00b0C`,
+              maxTemp: `${response.main.temp_max} \u00b0C`,
+              sunrise: response.sys.sunrise,
+              sunset: response.sys.sunset,
+              humidity: `${response.main.humidity} %`,
+              pressure: `${response.main.pressure} hPa`,
+            },
           })
         )
         .catch((error) => {

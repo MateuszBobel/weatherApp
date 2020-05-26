@@ -1,0 +1,36 @@
+.hightlightTitle {
+  font-size: 25px;
+  width: 100%;
+  margin: 30px 0 30px 30px;
+}
+
+.hightlightContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  background-color: #ddd;
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .hightlightTitle {
+    font-size: 40px;
+    margin: 50px 0 50px 50px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .hightlightContainer {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 50%;
+  }
+}
+
+@media (min-width: 1360px) and (orientation: landscape) {
+  .hightlightContainer {
+    left: 25%;
+    width: 60%;
+  }
+}

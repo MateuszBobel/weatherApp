@@ -33,7 +33,6 @@ function App() {
       maxTemp: 0,
       sunrise: 0,
       sunset: 0,
-      visibility: 0,
       humidity: 0,
       pressure: 0,
     },

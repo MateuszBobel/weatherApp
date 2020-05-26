@@ -1,27 +1,48 @@
 .tiles {
   display: flex;
-  align-items: center;
+  justify-content: space-evenly;
   flex-direction: column;
-  width: 30%;
+  height: 100px;
+  width: 45%;
   background-color: #fff;
   border-radius: 20px;
   margin: 4px;
-  font-family: 'ABeeZee', sans-serif;
+  padding-left: 15px;
 }
 
-.image {
-  font-size: 30px;
+.title {
+  font-size: 18px;
+  color: #777;
 }
 
-.day,
-.dayTemp {
-  font-size: 16px;
+.mainInfo {
+  font-size: 25px;
   font-weight: bold;
   color: #000;
 }
 
-.nightTemp {
-  font-size: 12px;
-  color: #777;
-  padding-left: 5px;
+.sunImg {
+  padding-right: 10px;
+  width: 20%;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .tiles {
+    height: 250px;
+    padding-left: 40px;
+    margin: 10px;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .mainInfo {
+    font-size: 50px;
+  }
 }
