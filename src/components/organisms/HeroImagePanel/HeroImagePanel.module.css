@@ -1,0 +1,60 @@
+.slogan {
+  font-size: 25px;
+  padding: 30px;
+}
+
+.heroImage {
+  width: 70%;
+  padding-left: 30px;
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .slogan {
+    font-size: 40px;
+    padding: 50px;
+  }
+
+  .heroImage {
+    padding-left: 30px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .heroImageContainer {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 35%;
+  }
+
+  .slogan {
+    font-family: 'Nixie One', sans-serif;
+    font-size: 30px;
+    width: 40%;
+    padding: 4% 0 0 5%;
+    margin-top: 3%;
+  }
+
+  .heroImage {
+    width: 35%;
+    padding: 4% 0 0 0;
+  }
+}
+
+@media (min-width: 1360px) and (orientation: landscape) {
+  .heroImageContainer {
+    left: 25%;
+  }
+
+  .slogan {
+    font-size: 35px;
+    width: 40%;
+    padding-left: 50px;
+    margin-top: 3%;
+  }
+
+  .heroImage {
+    width: 35%;
+    padding: 2% 0 0 0;
+  }
+}

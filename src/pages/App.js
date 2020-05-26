@@ -6,6 +6,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import styles from './App.module.css';
 import MainPanel from '../components/organisms/MainPanel/MainPanel';
 import HighlightsPanel from '../components/organisms/HighlightsPanel/HighlightsPanel';
+import HeroImagePanel from '../components/organisms/HeroImagePanel/HeroImagePanel';
 
 function App() {
   useEffect(() => {
@@ -57,6 +58,7 @@ function App() {
       ) : (
         <>
           <MainPanel stateValue={stateValue} setStateValue={setStateValue} />
+          <HeroImagePanel />
           <HighlightsPanel stateValue={stateValue.highlightParameters} />
         </>
       )}
