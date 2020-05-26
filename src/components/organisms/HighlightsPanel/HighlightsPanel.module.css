@@ -34,3 +34,9 @@
     width: 60%;
   }
 }
+
+@media (min-width: 1420px) and (orientation: landscape) {
+  .hightlightContainer {
+    top: 30%;
+  }
+}
