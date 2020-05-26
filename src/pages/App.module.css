@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #ddd;
+  background-color: #ccc;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .App {
-  height: 300px;
-  background-color: #fff;
+  display: block;
+  height: 100vh;
+  background-color: #ddd;
   border-radius: 25px;
 }
