@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './SearchInput.module.css';
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 
-const SearchInput = ({ stateValue, setStateValue }) => {
+const SearchInput = ({ stateValue, setStateValue, getCurrentWeather }) => {
   const handleInputChange = (e) => {
     setStateValue({
       ...stateValue,
@@ -12,21 +13,23 @@ const SearchInput = ({ stateValue, setStateValue }) => {
   const { wrap, search, searchIcon, searchInput } = styles;
 
   return (
-    <div className={wrap}>
-      <div className={search}>
-        <div className={searchIcon}>
-          <span className='fas fa-search'></span>
+    <KeyboardEventHandler handleKeys={['enter']} onKeyEvent={(key, e) => getCurrentWeather()}>
+      <div className={wrap}>
+        <div className={search}>
+          <div className={searchIcon}>
+            <span className='fas fa-search'></span>
+          </div>
+          <input
+            className={searchInput}
+            type='search'
+            name='search'
+            value={stateValue.inputValue}
+            placeholder='Search place...'
+            onChange={(e) => handleInputChange(e)}
+          />
         </div>
-        <input
-          className={searchInput}
-          type='search'
-          name='search'
-          value={stateValue.inputValue}
-          placeholder='Search place...'
-          onChange={(e) => handleInputChange(e)}
-        />
       </div>
-    </div>
+    </KeyboardEventHandler>
   );
 };
 

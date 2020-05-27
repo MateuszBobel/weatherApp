@@ -77,7 +77,11 @@ const MainPanel = ({ stateValue, setStateValue }) => {
 
   return (
     <div className={styles.mainPanel}>
-      <SearchInput stateValue={stateValue} setStateValue={setStateValue} />
+      <SearchInput
+        getCurrentWeather={() => getCurrentWeather(inputValue)}
+        stateValue={stateValue}
+        setStateValue={setStateValue}
+      />
       <MainInfoPanel stateValue={stateValue} />
       <SearchButton getCurrentWeather={() => getCurrentWeather(inputValue)} />
     </div>
