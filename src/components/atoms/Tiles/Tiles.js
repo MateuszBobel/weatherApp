@@ -7,15 +7,16 @@ const Tiles = ({ title, mainInfo }) => {
     return time;
   };
 
+  const { tileContainer, tileTitle, tileMainInfo } = styles;
+
   return (
-    <div className={styles.tiles}>
-      <p className={styles.title}>{title}</p>
+    <div className={tileContainer}>
+      <p className={tileTitle}>{title}</p>
       {title === 'sunrise' || title === 'sunset' ? (
-        <p className={styles.mainInfo}>{convertTime(mainInfo)}</p>
+        <p className={tileMainInfo}>{convertTime(mainInfo)}</p>
       ) : (
-        <p className={styles.mainInfo}>{mainInfo}</p>
+        <p className={tileMainInfo}>{mainInfo}</p>
       )}
-      {/* <p className={styles.intensity}>{intensity}</p> */}
     </div>
   );
 };

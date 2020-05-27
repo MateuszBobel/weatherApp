@@ -1,4 +1,4 @@
-.tiles {
+.tileContainer {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -10,39 +10,29 @@
   padding-left: 15px;
 }
 
-.title {
+.tileTitle {
   font-size: 18px;
   color: #777;
 }
 
-.mainInfo {
+.tileMainInfo {
   font-size: 25px;
   font-weight: bold;
   color: #000;
 }
 
-.sunImg {
-  padding-right: 10px;
-  width: 20%;
-}
-
-.imageContainer {
-  display: flex;
-  align-items: center;
-}
-
 @media (min-width: 768px) and (orientation: portrait) {
-  .tiles {
+  .tileContainer {
     height: 250px;
     padding-left: 40px;
     margin: 10px;
   }
 
-  .title {
+  .tileTitle {
     font-size: 40px;
   }
 
-  .mainInfo {
+  .tileMainInfo {
     font-size: 50px;
   }
 }
