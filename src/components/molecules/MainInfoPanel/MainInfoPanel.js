@@ -73,6 +73,7 @@ const MainInfoPanel = ({ stateValue }) => {
     mainInfoWrapper,
     mainInfo,
     errorImg,
+    weatherImg,
   } = styles;
 
   const isError = stateValue.isError;
@@ -82,7 +83,7 @@ const MainInfoPanel = ({ stateValue }) => {
       <div className={mainInfoWrapper}>
         <div className={weatherBigLogo}>
           <img
-            className={isError ? errorImg : null}
+            className={isError ? errorImg : weatherImg}
             src={isError ? errorImage : changeWeatherBigLogo(description)}
             alt={isError ? 'error' : 'sun'}
           />

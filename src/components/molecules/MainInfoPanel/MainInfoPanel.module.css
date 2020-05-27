@@ -3,7 +3,7 @@
 }
 
 .errorImg {
-  width: 86%;
+  width: 80%;
   margin-bottom: 20px;
 }
 
@@ -149,11 +149,12 @@
     margin: 10px 0 0 0;
   }
 
-  .weatherBigLogo {
-    margin: 10px 0;
+  .weatherImg {
+    width: 50%;
   }
+
   .errorImg {
-    width: 85%;
+    width: 65%;
   }
 
   .mainInfoWrapper {
@@ -167,5 +168,15 @@
 
   .errorSymbol span {
     margin-top: 10px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .weatherImg {
+    width: 64%;
+  }
+
+  .errorImg {
+    width: 87%;
   }
 }

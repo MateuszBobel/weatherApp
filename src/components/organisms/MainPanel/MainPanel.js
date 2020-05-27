@@ -69,6 +69,14 @@ const MainPanel = ({ stateValue, setStateValue }) => {
             ...stateValue,
             inputValue: '',
             isError: true,
+            highlightParameters: {
+              minTemp: ' --- ',
+              maxTemp: ' --- ',
+              sunrise: 0,
+              sunset: 0,
+              humidity: ' --- ',
+              pressure: ' --- ',
+            },
           });
         });
     }
