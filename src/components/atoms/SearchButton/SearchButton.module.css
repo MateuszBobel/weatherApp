@@ -9,11 +9,19 @@
   background-color: #000;
   cursor: pointer;
   outline: none;
+  transition: 0.2s;
 }
 
 @media (min-width: 768px) and (orientation: portrait) {
   .searchBtn {
     height: 100px;
     font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .searchBtn:hover,
+  .searchBtn:focus {
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px #000;
   }
 }
