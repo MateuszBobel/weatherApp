@@ -171,7 +171,7 @@
   }
 }
 
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width: 1420px) and (orientation: landscape) {
   .weatherImg {
     width: 64%;
   }
