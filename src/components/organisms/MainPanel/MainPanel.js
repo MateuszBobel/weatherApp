@@ -8,7 +8,7 @@ import MainInfoPanel from '../../molecules/MainInfoPanel/MainInfoPanel';
 
 const MainPanel = ({ stateValue, setStateValue }) => {
   useEffect(() => {
-    const url = 'https://ipapi.co/8.8.8.8/json/';
+    const url = 'https://ipapi.co/json/';
 
     fetch(url)
       .then((response) => {
