@@ -1,9 +1,9 @@
 .weatherBigLogo {
-  margin: 10px 0 0 22px;
+  margin: 10px 0 22px 0;
 }
 
 .errorImg {
-  width: 100%;
+  width: 86%;
   margin-bottom: 20px;
 }
 
@@ -153,11 +153,7 @@
     margin: 10px 0;
   }
   .errorImg {
-    width: 50%;
-  }
-
-  .weatherBigLogo img {
-    width: 50%;
+    width: 85%;
   }
 
   .mainInfoWrapper {
