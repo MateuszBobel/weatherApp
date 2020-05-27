@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './HighlightsPanel.module.css';
 import Tiles from '../../atoms/Tiles/Tiles';
+import PropTypes from 'prop-types';
 
 const HighlightsPanel = ({ stateValue }) => {
   const hightlights = Object.entries(stateValue).map(([key, value], i) => (
@@ -15,6 +16,10 @@ const HighlightsPanel = ({ stateValue }) => {
       {hightlights}
     </div>
   );
+};
+
+HighlightsPanel.propTypes = {
+  stateValue: PropTypes.object,
 };
 
 export default HighlightsPanel;

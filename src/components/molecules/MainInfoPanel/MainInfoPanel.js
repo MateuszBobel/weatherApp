@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './MainInfoPanel.module.css';
+import PropTypes from 'prop-types';
 
 import sun from './sun-192x192.png';
 import sunWithClouds from './sun-with-clouds-192x192.png';
@@ -123,6 +124,10 @@ const MainInfoPanel = ({ stateValue }) => {
       )}
     </div>
   );
+};
+
+MainInfoPanel.propTypes = {
+  stateValue: PropTypes.object,
 };
 
 export default MainInfoPanel;

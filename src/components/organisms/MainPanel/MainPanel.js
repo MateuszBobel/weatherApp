@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './MainPanel.module.css';
+import PropTypes from 'prop-types';
 
 import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
@@ -86,6 +87,11 @@ const MainPanel = ({ stateValue, setStateValue }) => {
       <SearchButton getCurrentWeather={() => getCurrentWeather(inputValue)} />
     </div>
   );
+};
+
+MainInfoPanel.propTypes = {
+  tateValue: PropTypes.object,
+  setStateValue: PropTypes.func,
 };
 
 export default MainPanel;

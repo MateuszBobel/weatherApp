@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Tiles.module.css';
+import PropTypes from 'prop-types';
 
 const Tiles = ({ title, mainInfo }) => {
   const convertTime = (number) => {
@@ -19,6 +20,11 @@ const Tiles = ({ title, mainInfo }) => {
       )}
     </div>
   );
+};
+
+Tiles.propTypes = {
+  title: PropTypes.string,
+  mainInfo: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Tiles;

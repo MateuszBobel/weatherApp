@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SearchInput.module.css';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
+import PropTypes from 'prop-types';
 
 const SearchInput = ({ stateValue, setStateValue, getCurrentWeather }) => {
   const handleInputChange = (e) => {
@@ -31,6 +32,12 @@ const SearchInput = ({ stateValue, setStateValue, getCurrentWeather }) => {
       </div>
     </KeyboardEventHandler>
   );
+};
+
+SearchInput.propTypes = {
+  stateValue: PropTypes.object.isRequired,
+  setStateValue: PropTypes.func.isRequired,
+  getCurrentWeather: PropTypes.func.isRequired,
 };
 
 export default SearchInput;
