@@ -18,7 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [react-keyboard-event-handler](https://www.npmjs.com/package/react-keyboard-event-handler)
 
 ## Installing
-To run this project, install it locally using npm:built 
+To run this project, install it locally using npm: 
 ```
 $ npm install
 $ npm start
